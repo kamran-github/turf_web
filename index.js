@@ -11,6 +11,7 @@ const API_KEY = process.env.API_KEY; // Load API key from .env
 const API_SECRET = process.env.API_SECRET; // Load API secret from .env
 
 const app = express();
+
 // Middleware for rate limiting
 const limiter = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10), // 15 minutes
@@ -18,6 +19,8 @@ const limiter = rateLimit({
   message: { message: process.env.RATE_LIMIT_MESSAGE },
 });
 // Apply the rate limiter to all requests
+
+
 app.use(limiter);
 // Middleware
 app.use(express.json());
