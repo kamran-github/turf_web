@@ -4,7 +4,7 @@
  */
 const express = require('express');
 const dbController = require('../controllers/dbController');
-
+const UserController  = require('../controllers/customApiLoginController')
 const router = express.Router();
 
 router.post('/insertOne', dbController.insertOne);
@@ -15,5 +15,7 @@ router.post('/updateOne', dbController.updateOne);
 router.post('/deleteOne', dbController.deleteOne);
 router.post('/deleteMany', dbController.deleteMany);
 router.post('/aggregate', dbController.aggregate);
+router.post('/user/create',UserController.createUser);
+router.get('/user/getuser',UserController.getUsers);
 
 module.exports = router;
